@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (isValidUser) {
         alert('Login successful!');
         // Redirect to another page or dashboard
-        window.location.href = 'dashboard.html'; // Replace with your dashboard page
+        window.location.href = 'add_report.html'; // Replace with your dashboard page
     } else {
         errorMessage.textContent = 'Invalid username or password';
     }
