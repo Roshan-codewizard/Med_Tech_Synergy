@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patient Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MedTech Synergy</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="clinical_portal.html">Clinical Portal</a></li>
+                <li><a href="patient_report.html">Patient Report</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="patient-report">
+        <div class="container">
+            <h2>Patient Treatment Report</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Treatment ID</th>
+                        <th>Treatment Date</th>
+                        <th>Device Program Name</th>
+                        <th>Night Cycle UF (mL)</th>
+                        <th>Pre-Weight (kg)</th>
+                        <th>Pre-Blood Pressure</th>
+                        <th>Night Conc. 2</th>
+                        <th>Last Fill Conc.</th>
+                        <th>Manual Exchanges</th>
+                        <th>Flags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 MedTech Synergy. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Fetch data from the backend API and update the table dynamically
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('http://localhost:3000/api/reports')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("tbody");
+    
+                    data.forEach(report => {
+                        const row = `
+                            <tr>
+                                <td>${report.treatment_id}</td>
+                                <td>${report.treatment_date}</td>
+                                <td>${report.device_program_name}</td>
+                                <td>${report.night_cycle_uf}</td>
+                                <td>${report.pre_weight}</td>
+                                <td>${report.pre_blood_pressure}</td>
+                                <td>${report.night_conc_2}</td>
+                                <td>${report.last_fill_conc}</td>
+                                <td>${report.manual_exchanges}</td>
+                                <td>${report.flags}</td>
+                            </tr>
+                        `;
+                        tableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error fetching reports:', error));
+        });
+    </script>
+    
+</body>
+</html>
