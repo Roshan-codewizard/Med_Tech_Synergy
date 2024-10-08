@@ -3,57 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startup Page</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('medical.jpg'); /* Add your image URL here */
-            background-size: cover; /* Make the image cover the entire background */
-            background-position: center; /* Center the image */
-            font-family: Arial, sans-serif;
-            margin: 0; /* Remove default margin */
-        }
-        .button {
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 16px;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .admin {
-            background-color: #007bff;
-        }
-        .admin:hover {
-            background-color: #0056b3;
-        }
-        .patient {
-            background-color: #28a745;
-        }
-        .patient:hover {
-            background-color: #218838;
-        }
-    </style>
+    <title>Patient Portal Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <button class="button admin" id="adminButton">Administrator Login</button>
-        <button class="button patient" id="patientButton">Patient Login</button>
+    <div class="login-container">
+        <h1>Patient Portal Login</h1>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Login</button>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <p id="error-message" class="error-message"></p>
+        </form>
     </div>
 
-    <script>
-        document.getElementById('adminButton').onclick = function() {
-            window.location.href = 'admin_login.html'; // Redirect to admin login page
-        };
-
-        document.getElementById('patientButton').onclick = function() {
-            window.location.href = 'patient_login.html'; // Redirect to patient login page
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

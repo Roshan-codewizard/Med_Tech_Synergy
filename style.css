@@ -1,159 +1,77 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f8f8f8; /* Light gray background for the entire page */
-    color: #333; /* Dark gray for text */
-}
-
-header {
-    background-color: #555; /* Dark gray header */
-    padding: 15px 20px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-/* Add hover effect for navigation links */
-.nav-links a:hover {
-    color: #ddd; /* Light gray hover effect */
-}
-
-.hero {
-    background: url('image.jpg') no-repeat center center / cover;
-    height: 600px; /* Increased hero section height */
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
     text-align: center;
+    color: #333;
 }
 
-.hero-text h1 {
-    font-size: 48px;
-}
-
-.hero-text p {
-    font-size: 20px;
-}
-
-.btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #666; /* Medium gray button */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-footer {
-    background-color: #eee; /* Light gray footer */
-    padding: 10px;
-    text-align: center;
-    color: #555; /* Medium gray footer text */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    background-color: #fff; /* White table background */
-}
-
-table, th, td {
-    border: 1px solid #ccc; /* Light gray borders */
-}
-
-th, td {
-    padding: 12px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-th {
-    background-color: #555; /* Dark gray headers */
-    color: white; /* White text for headers */
+label {
+    display: block;
+    margin: 15px 0 5px;
     font-weight: bold;
 }
 
-/* Alternate row colors */
-tbody tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Light gray for alternate rows */
-}
-
-tbody tr:hover {
-    background-color: #ddd; /* Slightly darker gray for hover */
-}
-
-/* Header and table alignment */
-thead th {
-    text-align: center;
-    padding: 15px;
-    background-color: #444; /* Darker gray for table header */
-}
-
-/* Subtle shadow and rounded corners for the table */
-table {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
     border-radius: 5px;
-    overflow: hidden;
+    font-size: 16px;
 }
 
-/* Media Query for Responsive Design */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-    }
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-    }
-    .nav-links li {
-        margin: 10px 0;
-    }
+input:focus {
+    border-color: #80bdff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }
