@@ -3,43 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MedTech Synergy</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Startup Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('medical.jpg'); /* Add your image URL here */
+            background-size: cover; /* Make the image cover the entire background */
+            background-position: center; /* Center the image */
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+        }
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .admin {
+            background-color: #007bff;
+        }
+        .admin:hover {
+            background-color: #0056b3;
+        }
+        .patient {
+            background-color: #28a745;
+        }
+        .patient:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-   <header>
-    <div class="header-content">
-        <div class="logo">MedTech Synergy</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Clinical Portal</a></li>
-                <li><a href="#">Patient Report</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+    <div>
+        <button class="button admin" id="adminButton">Administrator Login</button>
+        <button class="button patient" id="patientButton">Patient Login</button>
     </div>
-   </header>
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <h1>MedTech Synergy</h1>
-            <p>Comprehensive eHealth Solutions for Peritoneal Dialysis</p>
-            <a href="clinical_portal.html" class="btn">Go to Clinical Portal</a>
-            <a href="patient_report.html" class="btn">Go to Patient Report</a>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2024 MedTech Synergy. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <script>
+        document.getElementById('adminButton').onclick = function() {
+            window.location.href = 'admin_login.html'; // Redirect to admin login page
+        };
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+        document.getElementById('patientButton').onclick = function() {
+            window.location.href = 'patient_login.html'; // Redirect to patient login page
+        };
+    </script>
 </body>
 </html>
