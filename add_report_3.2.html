@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Patient Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; text-align: center; }
+        section { max-width: 600px; margin: 50px auto; background: white; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
+        button { background-color: #3498db; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+
+    <h2>Add New Patient Treatment Report</h2>
+    
+    <form id="report-form">
+        <input type="date" id="treatment_date" required>
+        <input type="text" id="device_program_name" placeholder="Device Program Name" required>
+        <input type="number" id="night_cycle_uf" placeholder="Night Cycle UF (mL)" required>
+        <input type="number" step="0.1" id="pre_weight" placeholder="Pre-Weight (kg)" required>
+        <input type="text" id="pre_blood_pressure" placeholder="Pre-Blood Pressure" required>
+        <input type="text" id="night_conc_2" placeholder="Night Conc. 2" required>
+        <input type="text" id="last_fill_conc" placeholder="Last Fill Conc." required>
+        <input type="number" id="manual_exchanges" placeholder="Manual Exchanges" required>
+        <input type="text" id="flags" placeholder="Flags">
+        <button type="submit">Add Report</button>
+    </form>
+
+    <script>
+        document.getElementById('report-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const newReport = {
+                treatment_date: document.getElementById('treatment_date').value,
+                device_program_name: document.getElementById('device_program_name').value,
+                night_cycle_uf: parseInt(document.getElementById('night_cycle_uf').value),
+                pre_weight: parseFloat(document.getElementById('pre_weight').value),
+                pre_blood_pressure: document.getElementById('pre_blood_pressure').value,
+                night_conc_2: document.getElementById('night_conc_2').value,
+                last_fill_conc: document.getElementById('last_fill_conc').value,
+                manual_exchanges: parseInt(document.getElementById('manual_exchanges').value),
+                flags: document.getElementById('flags').value
+            };
+
+            fetch('http://localhost:3000/api/reports', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newReport)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Report added successfully!');
+                document.getElementById('report-form').reset();
+            })
+            .catch(error => console.error('Error adding report:', error));
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; text-align: center; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; background: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        th, td { padding: 10px; border: 1px solid #ccc; }
+        th { background-color: #3498db; color: white; }
+    </style>
+</head>
+<body>
+
+    <h2>Patient Treatment Report</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Treatment ID</th>
+                <th>Treatment Date</th>
+                <th>Device Program Name</th>
+                <th>Night Cycle UF (mL)</th>
+                <th>Pre-Weight (kg)</th>
+                <th>Pre-Blood Pressure</th>
+                <th>Night Conc. 2</th>
+                <th>Last Fill Conc.</th>
+                <th>Manual Exchanges</th>
+                <th>Flags</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function fetchReports() {
+            fetch('http://localhost:3000/api/reports')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("tbody");
+                    tableBody.innerHTML = ''; // Clear table before adding new data
+
+                    data.forEach(report => {
+                        const row = `
+                            <tr>
+                                <td>${report.id}</td>
+                                <td>${report.treatment_date}</td>
+                                <td>${report.device_program_name}</td>
+                                <td>${report.night_cycle_uf}</td>
+                                <td>${report.pre_weight}</td>
+                                <td>${report.pre_blood_pressure}</td>
+                                <td>${report.night_conc_2}</td>
+                                <td>${report.last_fill_conc}</td>
+                                <td>${report.manual_exchanges}</td>
+                                <td>${report.flags}</td>
+                            </tr>
+                        `;
+                        tableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error fetching reports:', error));
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchReports);
+    </script>
+
+</body>
+</html>
